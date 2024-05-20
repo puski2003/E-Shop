@@ -1,0 +1,241 @@
+*{
+    margin: 0px;
+    padding: 0;
+    overflow-x: hidden;
+  
+   
+}
+.btn-set .btn{
+    border: 0px !important;
+}
+header{
+    position:sticky;
+    top:0;
+    background-color: #fafbfc83;   
+    z-index: 2;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    border-radius: 0 0 2em 2em;
+}
+.hero{
+    position: relative;
+    top: -16vh;
+    height: 45vh;
+    margin-bottom: -16vh;
+    background-image: url('Resources/store-hero.jpg');
+    background-size: cover;
+    background-position: bottom;     
+    background-repeat: no-repeat;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(208, 224, 234, 0.388);
+    color: azure;
+    font-family: 'Lato', sans-serif;
+    font-weight: 800;
+    
+    
+  }
+  .overlay h1{
+    letter-spacing: 10px;
+    margin-top: 6vh;
+  }
+  .navbar-brand{
+    max-width: 60px;
+    min-width: 60px;
+
+}
+.offcanvas-end{
+  
+    background-color:#f6fcfd1c !important;
+    backdrop-filter: blur(15px); 
+   border-radius: 1em 0em 0em 1em;
+   
+
+}
+.offcanvas-start{
+  
+    background-color:#f6fcfd52 !important;
+    backdrop-filter: blur(15px); 
+   border-radius: 0em 1em 1em 0em;
+  
+
+}
+.offcanvas .offcanvas-body .navbar-nav .nav-item .nav-link {
+    color: white !important;
+}
+.breadcrumb-item{
+    color: aliceblue !important;
+}
+.card{
+    border: 0 !important;
+    text-align: center;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+}
+.Wproduct{
+    height: 50vh;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+/* .Wproduct1{
+    background-image: url('Resources/product1-front.jpeg');
+}
+.Wproduct1:hover{
+
+    background-image: url('Resources/product1-rear.jpeg');
+}
+.Wproduct2{
+    background-image: url('Resources/product2-front.jpeg');
+}
+.Wproduct2:hover{
+
+    background-image: url('Resources/product2-rear.jpeg');
+}
+.Wproduct3{
+    background-image: url('Resources/product3-front.jpeg');
+}
+.Wproduct3:hover{
+
+    background-image: url('Resources/product3-rear.jpeg');
+}
+.Wproduct4{
+    background-image: url('Resources/product4-front.jpeg');
+}
+.Wproduct4:hover{
+
+    background-image: url('Resources/product4-rear.jpeg');
+} */
+.card-body{
+    
+    height: 20vh;
+   
+    min-height: 20vh;
+    max-height: 20vh;
+    font-weight:800 ;
+    font-style: bold;
+    z-index: 3;
+   
+       
+        
+    
+
+}
+.card-effect{
+    background-color:#f6fcfd33 !important;
+    backdrop-filter: blur(15px); 
+    border-radius: 2em 2em 0em 0em;
+}
+.card-img-effect{
+    height: 40vh;
+    
+    transition: height 0.5s;
+
+
+}
+.card:hover .card-img-effect {
+    height: 30vh;
+}
+.card-body .card-title{
+    font-size: 16px !important;
+    overflow-y: hidden;
+
+}
+.checked {
+    color: orange;
+  }
+  .card-button button{
+    border: 0 !important;
+    width: 36px !important;
+    height: 36px !important;  
+    
+    border-radius: 50% !important;
+    
+  }
+  
+  
+  .card-button button:hover{
+    background-color: rgba(84, 85, 87, 0.226) !important;
+    backdrop-filter: blur(15px) !important; 
+
+  }
+ 
+ .ratting{
+    overflow:hidden  !important;
+    transform: translateY(1.5px);
+ }
+
+.sort-container{
+
+    border-bottom:solid 0.25px rgba(128, 128, 128, 0.46);
+}
+.card-button button svg{
+    transform: translateX(-2px);
+}
+.category-title
+{
+    font-size: 17px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    
+    margin-left: 5px !important;
+    margin-top: 5px !important; 
+   
+   
+
+}
+.form-range::-webkit-slider-runnable-track {
+    background-color: rgba(198, 194, 194, 0.54) !important;
+  }
+  .form-range{
+    width: 15vw !important;
+  }
+
+  .form-range::-webkit-slider-thumb:active {
+    background-color:blue !important;
+
+  }
+  .banner{
+    background-image: url('Resources/widget-banner.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  
+  .product-container-table{
+    overflow-y: scroll;
+    overflow-x: hidden;
+ 
+}
+.product-container-table::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+
+  .product-container-table::-webkit-scrollbar-track {
+    
+    border-radius: 10px;
+  }
+   
+
+  .product-container-table::-webkit-scrollbar-thumb {
+    background: rgba(168, 163, 163, 0.368); 
+    border-radius: 10px;
+  }
+  
+ 
+  .product-container-table::-webkit-scrollbar-thumb:hover {
+    background: rgba(168, 163, 163, 0.368);  
+  }
+.pagination-btn{
+    background-color: rgb(223, 228, 235) !important;
+    border: 1px solid  grey !important;
+}

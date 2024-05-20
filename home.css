@@ -1,0 +1,285 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+   background-color: white;
+   font-family: 'Raleway', sans-serif;
+   font-weight: 600;
+}
+
+header,.primary-nav{
+    background-color: #fafbfc83;
+    position: relative;
+    z-index: 2;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+
+    
+}
+.primary-nav{
+    border-radius: 0 0 4.5em 4.5em;
+    
+}
+.offcanvas-end{
+  
+    background-color:#f6fcfd33;
+    backdrop-filter: blur(15px); 
+   border-radius: 1em 0em 0em 1em;
+
+}
+.offcanvas .offcanvas-body .navbar-nav .nav-item .nav-link {
+    color: white !important;
+}
+.navbar-brand{
+    max-width: 60px;
+    min-width: 60px;
+
+}
+.btn-set .btn{
+    border: 0px !important;
+}
+#carouselExampleRide {
+    position: relative;
+    top: -25vh;
+    margin-bottom: -25vh;
+    
+    width: 100%;
+    z-index: 1;
+}
+.carousel-inner{
+   
+    max-height: 80vh;
+    /* min-height: 60vh;
+    */
+    
+}
+.carousel-item {
+    position: relative;
+  }
+  
+
+  
+.ch{
+    
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 5vh;
+    position: relative;
+    
+}
+
+.ch .image-container{
+   
+    width: 22vw;
+   
+    flex-grow: 1;
+}
+
+
+*{
+    overflow-x: hidden;
+}
+.ch div:nth-child(1){
+    min-width: 300px;
+    background-image: url('Resources/categery-1.jpg');
+    width: 22vw;
+    height: 30vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    color:rgb(92, 86, 86);
+    font-family: 'Lato', sans-serif;
+    font-weight: 800;
+}
+.ch div:nth-child(2){
+    min-width: 300px;
+    background-image: url('Resources/categery-2.webp');
+    width: 22vw;
+    height: 30vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    color:rgb(92, 86, 86);
+    font-family: 'Lato', sans-serif;
+    font-weight: 800;
+}
+.ch div:nth-child(3){
+    min-width: 300px;
+    background-image: url('Resources/categery-3.jpg');
+    width: 22vw;
+    height: 30vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    color:rgb(92, 86, 86);
+    font-family: 'Lato', sans-serif;
+    font-weight: 800;
+}
+.card{
+  
+    text-align: center;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    
+    height: 55vh;
+    overflow-y: hidden;
+    border-radius: 1.3em;
+    box-shadow: 0px 7px 25px rgba(0, 0, 0, 0.08) !important;
+    
+}
+.card-con{
+    overflow-y: hidden;
+    
+}
+.Wproduct{
+    
+    height: 30vh;
+    margin-top: 5vh;
+   
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    border-radius: 1.3em;
+}
+.Wproduct1{
+    background-image: url('Resources/product1-front.jpeg');
+}
+.Wproduct1:hover{
+
+    background-image: url('Resources/product1-rear.jpeg');
+}
+.Wproduct2{
+    background-image: url('Resources/product2-front.jpeg');
+}
+.Wproduct2:hover{
+
+    background-image: url('Resources/product2-rear.jpeg');
+}
+.Wproduct3{
+    background-image: url('Resources/product3-front.jpeg');
+}
+.Wproduct3:hover{
+
+    background-image: url('Resources/product3-rear.jpeg');
+}
+.Wproduct4{
+    background-image: url('Resources/product4-front.jpeg');
+}
+.Wproduct4:hover{
+
+    background-image: url('Resources/product4-rear.jpeg');
+}
+.carousel-bg-img1{
+    background-image: url('Resources/slide-1.jpeg'),linear-gradient(rgba(41, 103, 142, 0.388),rgba(41, 103, 142, 0.388));
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 80vh;
+}
+.carousel-bg-img2{
+    background-image: url('Resources/slide-2.jpeg'),linear-gradient(rgba(41, 103, 142, 0.388),rgba(41, 103, 142, 0.388));
+    background-blend-mode: overlay;
+   
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 80vh;
+}
+.carousel-bg-img3{background-image: url('Resources/slide-3.jpeg'),linear-gradient(rgba(41, 103, 142, 0.388),rgba(41, 103, 142, 0.388));
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 80vh;
+}
+.product-container-table::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+
+  .product-container-table::-webkit-scrollbar-track {
+    
+    border-radius: 10px;
+  }
+   
+
+  .product-container-table::-webkit-scrollbar-thumb {
+    background: rgba(168, 163, 163, 0.368); 
+    border-radius: 10px;
+  }
+  
+ 
+  .product-container-table::-webkit-scrollbar-thumb:hover {
+    background: rgba(168, 163, 163, 0.368);  
+  }
+  .offcanvas-start{
+  
+    background-color:#f6fcfdb0 !important;
+    backdrop-filter: blur(15px); 
+   border-radius: 0em 1em 1em 0em;
+   
+
+}
+.form-range::-webkit-slider-runnable-track {
+    background-color: rgba(198, 194, 194, 0.54) !important;
+  }
+  .form-range{
+    width: 15vw !important;
+  }
+  .checked {
+    color: orange;
+  }
+.js-tilt-glare{
+    border-radius: 1.3em;
+    margin: 3vh;
+}
+
+.slider{
+    position: relative;
+    top: -25vh;
+    margin-bottom: -25vh;
+    
+    width: 100%;
+    z-index: 1;
+}
+  .swiper {
+
+    width: 100%;
+    height: 80vh;
+  }
+  .banner1{
+    background-image:linear-gradient(to bottom, rgba(102, 211, 208, 0.73), rgba(255, 42, 81, 0.8)), url('images/slider-banner1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .banner2{
+    background-image: linear-gradient(to bottom, #fbddb766,#fbddb793),url('images/slider-banner1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .banner3{
+    background-image:linear-gradient(to bottom, #ebdef096, #ebdef0), url('images/slider-banner1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .bottle{
+    width: 50vh;
+  }
+  .banner-text{
+    color:white;
+  }

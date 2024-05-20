@@ -1,0 +1,81 @@
+ body{
+    background-image: url('Resources/background-body.svg');
+    background-position: left;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+
+.sell-con{
+    background-color: rgba(255, 255, 255, 0.752);
+    min-height: 30vh;
+    border-radius: 1.5em;
+    margin-bottom:8vh ;
+     backdrop-filter: blur(15px); 
+
+    
+    
+  }
+  .Order{
+    background-color: rgba(255, 255, 255, 0.752);
+    backdrop-filter: blur(15px); 
+    border-radius: 1.5em;
+       
+  }
+  .product-menu-img1{
+    background-image: url('Resources/product2-front.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;  
+    background-size: contain;
+    height: 50vh;
+}
+.product-menu-img2{
+    background-image: url('Resources/product2-rear.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;  
+    background-size: contain;
+    height: 50vh;
+}
+
+.product-container-table{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 26vh;
+    margin-bottom: 5vh;
+}
+.product-container-table::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+
+  .product-container-table::-webkit-scrollbar-track {
+    
+    border-radius: 10px;
+  }
+   
+
+  .product-container-table::-webkit-scrollbar-thumb {
+    background: rgba(168, 163, 163, 0.368); 
+    border-radius: 10px;
+  }
+  
+ 
+  .product-container-table::-webkit-scrollbar-thumb:hover {
+    background: rgba(168, 163, 163, 0.368);  
+  }
+  .prof-img{
+    background-image: url('Resources/prof-img1.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    clip-path: circle(30%);
+    height: 10vh;
+  }
+  .productAdd{
+    width: 185px;
+    height: 185px;
+  }
+  #product_add_error{
+    z-index: 100000;
+  }

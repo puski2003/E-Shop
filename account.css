@@ -1,0 +1,20 @@
+.container-account{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+.acc-cols{
+    background-color: rgba(61, 62, 62, 0.132);
+    margin-top: 4vh;
+    border-radius: 1.3em;
+    box-shadow: 0px 7px 25px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(15px); 
+}
+.acc-prof-pic{
+    background-color: antiquewhite;
+    width: 9vw;
+    height: 9vw; 
+    shape-outside: circle(50%);
+    clip-path: circle(50%);
+
+}
