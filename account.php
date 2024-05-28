@@ -85,7 +85,7 @@ if (isset($_COOKIE["email"]) && isset($_COOKIE["password"])) {
                 <h5><?php echo ($_SESSION['fname']) ?>&nbsp;<?php echo ($_SESSION['lname']) ?> </h5>
             </div>
             <div class="d-flex justify-content-center">
-                <a class="link  text-decoration-none" style="color: rgba(16, 16, 16, 0.564);">Log Out</a>
+                <a class="link  text-decoration-none" style="color: rgba(16, 16, 16, 0.564);"><button class="btn" onclick="logout();">Log Out</button></a>
             </div>
             <div class="d-flex justify-content-center pt-5 mt-4">
                 <input type="file" id="profile-pic-id" class="d-none" onchange="ProfPicUpdate();">

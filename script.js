@@ -481,7 +481,6 @@ function catProductLoad(cat,pg,bd){
  form.append("condition",Condition.value);
  form.append("model",Model.value);
  form.append("brand",Brand.value);
- `` `g`
  form.append("color",Color.value);
  imageURLs.forEach(
     function(file){
@@ -851,8 +850,48 @@ function enableTiltEffect() {
     
 }
 
+function logout(){
 
+  xhr = new XMLHttpRequest();
+  form = new FormData();
+  form.append('que',"logout");
+  xhr.onload=function(){
+  
+    window.location.href="index.php";
+  }
+  xhr.open("POST","logout.php");
+  xhr.send(form);
+}
+const stripe = Stripe("pk_test_51O0gVtHoypIZDK3xZzHGbNPpXJz1Cjo9pwC3dz53lEUHLfr6NW3u0DMq05onZozImteQ71JxhdkhuSzgWH5dQYRw004Wg2k6uk");
 
+async function checkout() {
+  
+  const fetchClientSecret = async () => {
+    const response = await fetch('./create-checkout-session.php', {
+      method: 'POST',
+    })
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(session) {
+      return stripe.redirectToCheckout({ sessionId: session.sessionId });
+    })
+    .then(function(result) {
+      if (result.error) {
+        alert(result.error.message);
+      }
+    })
+    .catch(function(error) {
+      console.error('Error:', error);
+    });
+   
+    
+  };
+
+  fetchClientSecret();
+
+ 
+}
 function loadingCards2() {
   var numberOfProducts=4;
    
