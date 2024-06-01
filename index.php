@@ -31,6 +31,7 @@ if (isset($_SESSION['email'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://js.stripe.com/v3/"></script>
 
     <link rel="icon" href="Resources/logo.svg">
 

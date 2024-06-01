@@ -12,16 +12,25 @@ use Stripe\Stripe;
 
 $line_items = [];
 $rs = Database::search("SELECT * FROM product INNER JOIN cart ON product.id= cart.product_id WHERE user_email='" . $_SESSION["email"] . "';");
-
+$products=[];
 $num = $rs->num_rows;
 if ($num >= "1") {
     for ($x = 0; $x < $num; $x++) {
         $d = $rs->fetch_assoc();
+        $products_object=[
+            "id" => $d["id"],
+            "amount" => $d["amount"],
+
+        ];
+        array_push($products,$products_object);
+
         $productdata=[
             'price_data' => [
                 'currency' => 'lkr',
                 'product_data' => [
                     'name' => $d['title'],
+                    
+                    
                 ],
                 'unit_amount' => $d['price']*10,
             ],
@@ -29,19 +38,36 @@ if ($num >= "1") {
         ];
         array_push($line_items, $productdata);
     }
+
+
 }
+$metadata = [
+    "products" => $products,
+  ];
+
 $sessionData = [
     'payment_method_types' => ['card'],
     'line_items' => 
     $line_items,
     'mode' => 'payment',
-    'success_url' => 'http://localhost/E-Shop/success.php', // Replace with your success URL
-    'cancel_url' => 'http://localhost/E-Shop/canceled.php', // Replace with your cancel URL
+    'success_url' => 'http://localhost/E-Shop/payement-success.php', // Replace with your success URL
+    'cancel_url' => 'http://localhost/E-Shop/canceled.php',
+    
+    
+     // Replace with your cancel URL
 ];
 
 // Create a Checkout Session
 try {
     $session = \Stripe\Checkout\Session::create($sessionData);
+    if(isset($_SESSION['cart_products'])){
+        unset($_SESSION['cart_products']);
+        $_SESSION['cart_products'] = $products;
+
+    }else{
+        $_SESSION['cart_products'] = $products;
+
+    }
 
     $response = [
         'sessionId' => $session->id,

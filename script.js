@@ -18,6 +18,8 @@ function SignUp() {
     form.append("password",password.value);
     form.append("pnum",pnum.value);
     form.append("gender",gender.value);
+    
+    const cartData=[];
      
     var xhr = new XMLHttpRequest();
     xhr.onload= function(){
@@ -754,14 +756,29 @@ cartCount();
     xhr.send(form);
      
    }
+   function cartItemsOnload(data){
+   alert(data);
+
+   }
    function updateSubTotal(price,id){
-  
+    form = new FormData();
     var amount = document.getElementById("cart-amount-"+id).value;
     var subDOM = document.getElementById("cart-sub-"+id);
+    form.append('id',id);
+    form.append('amount',amount);
+   
     var sub=amount*price;
     subDOM.innerHTML=""+sub+"";
     finalsubcal();
     
+    xhr = new XMLHttpRequest();
+    xhr.onload= function (){
+      console.log(xhr.responseText);
+
+ 
+    }
+    xhr.open("POST","updateCartAmout.php");
+    xhr.send(form);
 
    }
    function finalsubcal() {

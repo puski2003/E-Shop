@@ -20,7 +20,7 @@ if (empty($_SESSION["fname"])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="Resources/logo.svg">
 
-
+    <script src="https://js.stripe.com/v3/"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <title>Cart</title>
 </head>
@@ -99,9 +99,10 @@ if (empty($_SESSION["fname"])) {
                                 if ($num >= "1") {
                                     for ($x = 0; $x < $num; $x++) {
                                         $d = $rs->fetch_assoc();
-                            ?>
-
-                                        <div class="row " style="font-size: 16px; font-family: 'Lato', sans-serif; " id="cart-con-<?php echo ($d['cart-id']); ?>">
+                            ?> 
+                            
+                            
+                                        <div  class="row " style="font-size: 16px; font-family: 'Lato', sans-serif; " id="cart-con-<?php echo ($d['cart-id']); ?>">
                                             <div class="col-2 pt-2">
                                                 <div class="cart-img" style="background-image: url(<?php echo ($d['image_1']) ?>);"></div>
                                             </div>
