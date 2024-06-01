@@ -13,6 +13,7 @@ class Database{
     Database::$connection->query($q);
 
  }
+
  public static function search($q){
     Database::setUpconnction();
     $rs=Database::$connection->query($q);
@@ -20,6 +21,8 @@ class Database{
     
 
  }
+ 
+
 
 }
 
