@@ -13,6 +13,10 @@ use Stripe\Stripe;
 $line_items = [];
 $rs = Database::search("SELECT * FROM product INNER JOIN cart ON product.id= cart.product_id WHERE user_email='" . $_SESSION["email"] . "';");
 $products=[];
+$min = 10000000;
+$max = 99999999;
+
+$unique_id = mt_rand($min, $max);
 $num = $rs->num_rows;
 if ($num >= "1") {
     for ($x = 0; $x < $num; $x++) {
@@ -63,9 +67,12 @@ try {
     if(isset($_SESSION['cart_products'])){
         unset($_SESSION['cart_products']);
         $_SESSION['cart_products'] = $products;
+        $_SESSION['unique_id'] = $unique_id;
+
 
     }else{
         $_SESSION['cart_products'] = $products;
+        $_SESSION['unique_id'] = $unique_id;
 
     }
 

@@ -5,19 +5,18 @@ require "connection.php";
 session_start();
 $products = $_SESSION['cart_products'];
 $num = count($products);
-$min = 10000000;
-$max = 99999999;
 
-$unique_id = mt_rand($min, $max);
+
+$unique_id = $_SESSION['unique_id'];
 date_default_timezone_set('Asia/Colombo');
 
 $currentDateTime = date('Y-m-d H:i:s');
 Database::iud("DELETE FROM cart WHERE cart.user_email='" . $_SESSION['email'] . "';");
 
-Database::iud("INSERT INTO `order` (id,user_email,date,status) VALUES ('" . $unique_id . "','" . $_SESSION['email'] . "','" . $currentDateTime . "','pending')");
+Database::iud("INSERT IGNORE  INTO `order` (id,user_email,date,status) VALUES ('" . $unique_id . "','" . $_SESSION['email'] . "','" . $currentDateTime . "','pending')");
 for ($x = 0; $x < $num; $x++) {
     $d = $products[$x];
-    Database::iud("INSERT INTO order_product( order_id,product_id,quantity) VALUES ( '" . $unique_id . "','" . $d['id'] . "','" . $d['amount'] . "')");
+    Database::iud("INSERT IGNORE INTO order_product( order_id,product_id,quantity) VALUES ( '" . $unique_id . "','" . $d['id'] . "','" . $d['amount'] . "')");
 }
 
 Database::$connection->commit();

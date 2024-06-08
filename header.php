@@ -92,6 +92,17 @@
             <li class="nav-item px-2"><a class="nav-link" href="#">AboutUs</a></li>
 
             <li class="nav-item px-2"><a class="nav-link" href="#">ContactUs</a></li>
+            <?php
+            if (isset($_SESSION['email'])){
+
+
+               ?>
+               
+               <li class="nav-item px-2"><a class="nav-link" href="my-order.php">Orders</a></li>
+               
+               <?php
+            }
+            ?>
         </ul>
     </div>
 
