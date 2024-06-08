@@ -79,3 +79,10 @@
   #product_add_error{
     z-index: 100000;
   }
+.msg-login{
+  background-color: #DBF1FB;
+  height: 50vh;
+  width: 40%;
+  border-radius: 1.3em;
+  
+}

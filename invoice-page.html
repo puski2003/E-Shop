@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Invoice</title>
+    <style>
+        .invoice-container {
+            width: 100%;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+        }
+        .header img {
+            width: 100px;
+            height: auto;
+        }
+        .header .company-name {
+            margin-left: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .invoice-details, .customer-details {
+            margin-top: 20px;
+        }
+        .invoice-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .invoice-table th, .invoice-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        .invoice-table th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+        .total {
+            font-weight: bold;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice-container">
+        <div class="header">
+            <img src="path/to/your/logo.png" alt="Company Logo">
+            <div class="company-name">Your Company Name</div>
+        </div>
+
+        <div class="invoice-details">
+            <p><strong>Invoice Date:</strong> 2024-06-08</p>
+            <p><strong>Invoice Number:</strong> 123456</p>
+        </div>
+
+        <div class="customer-details">
+            <p><strong>Bill To:</strong></p>
+            <p>Customer Name</p>
+            <p>Customer Address</p>
+            <p>City, State, ZIP Code</p>
+        </div>
+
+        <table class="invoice-table">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Product 1</td>
+                    <td>2</td>
+                    <td>$50.00</td>
+                    <td>$100.00</td>
+                </tr>
+                <tr>
+                    <td>Product 2</td>
+                    <td>1</td>
+                    <td>$150.00</td>
+                    <td>$150.00</td>
+                </tr>
+                <tr>
+                    <td>Service 1</td>
+                    <td>5</td>
+                    <td>$20.00</td>
+                    <td>$100.00</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="total">Subtotal</td>
+                    <td>$350.00</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="total">Tax (10%)</td>
+                    <td>$35.00</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="total">Total</td>
+                    <td>$385.00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

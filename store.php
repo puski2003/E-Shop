@@ -40,7 +40,14 @@ if (empty($_SESSION["fname"])) {
 
     </div>
 
-
+    <div id="cart-toast" class="toast align-items-center text-white bg-green border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                Producted Added to Cart
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
     <div class=" row sort-container ">
         <div class="col-lg-10 col-md-9  col-sm-8 col-6"></div>
         <div class="sort col-lg-2 col-md-3 col-sm-4 col-6">
@@ -80,19 +87,19 @@ if (empty($_SESSION["fname"])) {
                                 </a>
                                 <div>
                                     <ul>
-                                        <?php if ($_GET['cat'] == $d['cat_id']) { 
-                                        $brandhascatRS=Database::search("SELECT * FROM brand_has_category INNER JOIN brand ON brand_has_category.brand_brand_id =brand.brand_id WHERE brand_has_category.category_cat_id='".$d['cat_id']."';");
-                                        $brandhascatnum = $brandhascatRS->num_rows;
-                                        for ($i=0;$i<$brandhascatnum;$i++){
-                                         $brandhascatdata= $brandhascatRS->fetch_assoc();
-                                       
-                                        ?>
-                                            
+                                        <?php if ($_GET['cat'] == $d['cat_id']) {
+                                            $brandhascatRS = Database::search("SELECT * FROM brand_has_category INNER JOIN brand ON brand_has_category.brand_brand_id =brand.brand_id WHERE brand_has_category.category_cat_id='" . $d['cat_id'] . "';");
+                                            $brandhascatnum = $brandhascatRS->num_rows;
+                                            for ($i = 0; $i < $brandhascatnum; $i++) {
+                                                $brandhascatdata = $brandhascatRS->fetch_assoc();
 
-                                            <li  ><a class="btn"  href="store.php?cat=<?php echo($d['cat_id'])?>&&pg=0&&bd=<?php echo($brandhascatdata['brand_id'])?>"><?php echo($brandhascatdata['brand_name'])?></a></li>
+                                        ?>
+
+
+                                                <li><a class="btn" href="store.php?cat=<?php echo ($d['cat_id']) ?>&&pg=0&&bd=<?php echo ($brandhascatdata['brand_id']) ?>"><?php echo ($brandhascatdata['brand_name']) ?></a></li>
                                         <?php
-                                     }    
-                                    }
+                                            }
+                                        }
                                         ?>
 
                                     </ul>

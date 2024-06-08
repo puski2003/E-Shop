@@ -1,0 +1,26 @@
+.main-con{
+    height: 130vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #bde6fae4;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+
+}
+.product-container{
+    position: relative;
+    top: -25vh;
+
+    margin-bottom: -25vh;
+}
+.sub-con{
+ background-color: aliceblue;
+ height: 70vh;
+ width: 60%;
+ border-radius: 1.3em;
+}
