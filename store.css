@@ -180,6 +180,9 @@ header{
 .card-button button svg{
     transform: translateX(-2px);
 }
+.card-button-container{
+    transform: translateY(10px);
+}
 .category-title
 {
     font-size: 17px;

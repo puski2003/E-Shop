@@ -24,7 +24,19 @@ session_start();
 
 <body>
 
-    <?php include "header.php"
+    <?php
+    include "header.php";
+    $rs4 = Database::search("SELECT SUM(product.price) AS total_sells FROM `order`  INNER JOIN order_product ON `order`.id = order_product.order_id INNER JOIN product ON order_product.product_id= product.id;");
+    $row4 = $rs4->fetch_array();
+    $total_sells = $row4["total_sells"];
+    $rs5 = Database::search("SELECT SUM(product.price) AS monthly_sells FROM `order` INNER JOIN order_product ON `order`.id = order_product.order_id INNER JOIN product ON order_product.product_id = product.id WHERE MONTH(`order`.date) = MONTH(CURRENT_DATE()) AND YEAR(`order`.date) = YEAR(CURRENT_DATE());");
+    $row5 = $rs5->fetch_array();
+    $monthly_sells = $row5["monthly_sells"];
+    $rs6 = Database::search("SELECT COUNT(product.price) AS num_items FROM `order`  INNER JOIN order_product ON `order`.id = order_product.order_id INNER JOIN product ON order_product.product_id= product.id;");
+    $row6 = $rs6->fetch_array();
+    $num_items = $row6["num_items"];
+
+
 
     ?>
 
@@ -54,7 +66,7 @@ session_start();
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="AddProductSubmit()">Save changes</button>
+                            <button type="button" class="btn btn-primary" onclick="EditProductSubmit()">Save changes</button>
                         </div>
                     </div>
                 </div>
@@ -377,8 +389,8 @@ session_start();
                             <div class="row  d-flex justify-content-between " style="font-family: 'Lato', sans-serif;">
                                 <div class="col-3 sell-con d-flex justify-content-between align-items-center mx-4">
                                     <div>
-                                        <p style="color: rgba(9, 10, 10, 0.579);">Total sells</p>
-                                        <h2 style="color:#2491EB;">$1000</h2>
+                                        <p style="color: rgba(9, 10, 10, 0.579);">Tota</p>
+                                        <h2 style="color:#2491EB;">Rs. <?php echo ($total_sells) ?></h2>
                                     </div>
                                     <button class="btn">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wallet" viewBox="0 0 16 16">
@@ -389,7 +401,7 @@ session_start();
                                 <div class="col-3 sell-con d-flex justify-content-between align-items-center mx-4">
                                     <div>
                                         <p style="color: rgba(9, 10, 10, 0.579);">Monthly Earning</p>
-                                        <h2 style="color:#2491EB;">$365</h2>
+                                        <h2 style="color:#2491EB;">Rs. <?php echo ($monthly_sells) ?> </h2>
                                     </div>
                                     <button class="btn">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wallet" viewBox="0 0 16 16">
@@ -400,7 +412,7 @@ session_start();
                                 <div class="col-3 sell-con d-flex justify-content-between align-items-center mx-4">
                                     <div>
                                         <p style="color: rgba(9, 10, 10, 0.579);">Total Orders</p>
-                                        <h2 style="color:#2491EB;">30 items</h2>
+                                        <h2 style="color:#2491EB;"><?php echo ($num_items) ?> items</h2>
                                     </div>
                                     <button class="btn">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wallet" viewBox="0 0 16 16">
@@ -428,20 +440,77 @@ session_start();
                                     </div>
                                     <div class="">
                                         <div class="row py-3 justify-content-center">
-                                            <div class="col-2">
-                                                <p>Customer name</p>
+                                            <div class="col-2" >
+                                                <p style="color:#64A6D8"><b>Customer name</b></p>
                                             </div>
-                                            <div class="col-2">
-                                                <p>Product</p>
-                                            </div>
+
                                             <div class="col-3">
-                                                <p>Invoice Number</p>
+                                                <p style="color:#64A6D8"><b>Order Number</b></p>
                                             </div>
                                             <div class="col-2">
-                                                <p>Status</p>
+                                                <p style="color:#64A6D8"><b>Status</b></p>
                                             </div>
                                         </div>
                                         <div class="product-container-table">
+                                            <?php
+                                            $rs6 = Database::search("SELECT fname,lname,`order`.* FROM `order`INNER JOIN `user` ON `order`.`user_email`=`user`.`email` WHERE `order`.user_email='" . $_SESSION['email'] . "' ;");
+                                            $num_row6 = $rs6->num_rows;
+                                            if ($num_row6 > 0) {
+                                                for ($x = 0; $x < $num_row6; $x++) {
+                                                    $data6 = $rs6->fetch_assoc(); ?>
+                                                    <div class="row py-4 justify-content-center">
+                                                        <div class="col-2">
+                                                            <p><?php echo ($data6['fname']) ?> <?php echo ($data6['lname']) ?></p>
+                                                        </div>
+
+                                                        <div class="col-3">
+                                                            <p><?php echo ($data6['id']) ?></p>
+                                                        </div>
+                                                        <div class="col-2">
+                                                            <?php
+                                                           
+       
+                                                            if ($data6['status'] == "pending") { ?>
+                                                                <div class="col-2 pt-2" style="width:100%">
+                                                                    <div style="background-color:#F7CB73;width:50%; height:30px;border-radius:1em">
+                                                                        <p style="color:white ;text-align:center"> <?php echo ($data6['status']); ?></p>
+                                                                    </div>
+                                                                </div>
+                                                            <?php
+
+
+                                                            }
+                                                            if ($data6['status'] == "completed") { ?>
+
+                                                                <div class="col-2 pt-2" style="width:100%">
+                                                                    <div style="background-color:#22bb33;width:50%; height:30px;border-radius:1em">
+                                                                        <p style="color:white ;text-align:center"> <?php echo ($data6['status']); ?></p>
+                                                                    </div>
+                                                                </div>
+                                                            <?php
+
+
+                                                            }
+                                                            if ($data6['status'] == "rejected") { ?>
+
+
+                                                                <div class="col-2 pt-2" style="width:100%">
+                                                                    <div style="background-color:#bb2124;width:50%; height:30px;border-radius:1em">
+                                                                        <p style="color:white ;text-align:center"> <?php echo ($data6['status']); ?></p>
+                                                                    </div>
+                                                                </div>
+                                                            <?php
+
+
+                                                            }
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                            <?php
+                                                }
+                                            }
+                                            ?>
+
 
                                         </div>
                                     </div>
@@ -454,30 +523,20 @@ session_start();
                                         <h5 style="color: #2491EB;">Recent Customers</h5>
                                     </div>
                                     <div class="product-container-table" style="height: 40vh;">
-                                        <div class="row ms-4 ">
-                                            <div class="col-3 prof-img"></div>
-                                            <div class="col-9 pt-4">Zachery Coope</div>
-                                        </div>
-                                        <div class="row ms-4 ">
-                                            <div class="col-3 prof-img"></div>
-                                            <div class="col-9 pt-4">Zachery Coope</div>
-                                        </div>
-                                        <div class="row ms-4 ">
-                                            <div class="col-3 prof-img"></div>
-                                            <div class="col-9 pt-4">Zachery Coope</div>
-                                        </div>
-                                        <div class="row ms-4 ">
-                                            <div class="col-3 prof-img"></div>
-                                            <div class="col-9 pt-4">Zachery Coope</div>
-                                        </div>
-                                        <div class="row ms-4 ">
-                                            <div class="col-3 prof-img"></div>
-                                            <div class="col-9 pt-4">Zachery Coope</div>
-                                        </div>
-                                        <div class="row ms-4 ">
-                                            <div class="col-3 prof-img"></div>
-                                            <div class="col-9 pt-4">Zachery Coope</div>
-                                        </div>
+                                        <?php
+                                        $rs6 = Database::search('SELECT fname,lname,path FROM `user`INNER JOIN profile_img ON `user`.email =profile_img.users_email');
+                                        $num_row6 = $rs6->num_rows;
+                                        if ($num_row6 > 0) {
+                                            for ($x = 0; $x < $num_row6; $x++) {
+                                                $data6 = $rs6->fetch_assoc(); ?>
+                                                <div class="row ms-4 ">
+                                                    <div class="col-3 prof-img" style="background-image:url(<?php echo ($data6['path']) ?>)"></div>
+                                                    <div class="col-9 pt-4"><?php echo ($data6['fname']) ?> <?php echo ($data6['lname']) ?></div>
+                                                </div><?php
+                                                    }
+                                                }
+                                                        ?>
+
                                     </div>
 
                                 </div>
@@ -659,29 +718,29 @@ session_start();
                 </div>
             </div>
         <?php
-        }else{
-            ?>
+        } else {
+        ?>
             <div class="d-flex justify-content-center align-items-center" style="height:90vh ;overflow:hidden">
-            <div class="msg-login">
-                <div class="d-flex justify-content-center align-items-center flex-column" style="height:100%">
-                    <div class="d-flex justify-content-center p-3 mt-3"><img src="./images/password.png" width="20%" /></div>
+                <div class="msg-login">
+                    <div class="d-flex justify-content-center align-items-center flex-column" style="height:100%">
+                        <div class="d-flex justify-content-center p-3 mt-3"><img src="./images/password.png" width="20%" /></div>
 
 
-                    <div class="d-flex justify-content-center">
-                        <a href="login.php" style="text-decoration: none;">
-                            <button class="btn btn-primary" style="font-size:20px">Sign in to your account
-                            </button>
-                        </a>
+                        <div class="d-flex justify-content-center">
+                            <a href="login.php" style="text-decoration: none;">
+                                <button class="btn btn-primary" style="font-size:20px">Sign in to your account
+                                </button>
+                            </a>
+                        </div>
+
                     </div>
-
                 </div>
-            </div>
-        </div>git
-            
-            
-            <?php
+            </div>git
+
+
+        <?php
         }
-    
+
 
         ?>
 

@@ -74,7 +74,12 @@
         <img src="Resources/logo.svg" class="navbar-brand mx-3" style="width: 3vw; ">
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 se d-sm-none d-md-none d-lg-flex d-none py-3" role="search" id="nav-search">
             <div class="d-flex flex-row">
-                <input type="search" class="form-control form-control" placeholder="Search..." aria-label="Search">
+                <input type="search" id="search-bar" class="form-control form-control" style="border-top-right-radius: 0;border-bottom-right-radius: 0;" placeholder="Search..." aria-label="Search">
+                <button onclick="searchClick();" class="btn " style="background-color: white;border-top-left-radius: 0;border-bottom-left-radius: 0;" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                    </svg>
+                </button>
                 <button class="btn " type="button" data-bs-toggle="offcanvas" data-bs-target="#advance-search" aria-controls="advance-search-backdrop">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filter" viewBox="0 0 16 16">
                         <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
@@ -93,14 +98,14 @@
 
             <li class="nav-item px-2"><a class="nav-link" href="#">ContactUs</a></li>
             <?php
-            if (isset($_SESSION['email'])){
+            if (isset($_SESSION['email'])) {
 
 
-               ?>
-               
-               <li class="nav-item px-2"><a class="nav-link" href="my-order.php">Orders</a></li>
-               
-               <?php
+            ?>
+
+                <li class="nav-item px-2"><a class="nav-link" href="my-order.php">Orders</a></li>
+
+            <?php
             }
             ?>
         </ul>

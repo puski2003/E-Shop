@@ -24,7 +24,7 @@ if (empty($_SESSION["fname"])) {
 
 </head>
 
-<body onload="catProductLoad('<?php echo ($_GET['cat']) ?>','<?php echo ($_GET['pg']) ?>','<?php echo ($_GET['bd']) ?>');">
+<body onload="catProductLoad('<?php echo ($_GET['cat']) ?>','<?php echo ($_GET['pg']) ?>','<?php echo ($_GET['bd']) ?>','<?php echo isset($_GET['key']) ? $_GET['key'] : null; ?>');">
     <?php include "header.php" ?>
     <div class="hero">
 

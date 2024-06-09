@@ -256,12 +256,17 @@ xhr.send(form);
 
  }
  
-function catProductLoad(cat,pg,bd){
-   
+function catProductLoad(cat,pg,bd,keyword){
+       
               var form = new FormData();
               form.append("cat_id",cat);
               form.append("pg",pg);
               form.append("bd",bd);
+             
+              if(keyword){
+                form.append("keyword",keyword);
+              }
+             
               var xhr = new XMLHttpRequest();
               xhr.onload=function(){
                document.getElementById("cat_container").innerHTML+=""+xhr.response+""
@@ -271,6 +276,11 @@ function catProductLoad(cat,pg,bd){
         
          
   
+  }
+  function searchClick(){
+    var keyword = document.getElementById("search-bar").value;
+    alert(keyword);
+    window.location='/store.php?cat=0&&pg=0&&bd=0&&key='+keyword;
   }
 
 
@@ -401,6 +411,7 @@ function catProductLoad(cat,pg,bd){
         var url = window.URL.createObjectURL(file);
         file.id=url;
         var productAddBtn = document.getElementById("productAddbtn-ed"+index);
+        console.log(productAddBtn);
         productAddBtn.classList.toggle("d-none");         
         productAddBtn.classList.toggle("d-flex");         
         var productAddId = document.getElementById("productAddId-ed"+index);
@@ -509,7 +520,57 @@ xhr.open("POST","AddProduct.php","true");
 xhr.send(form);
 
   }
-
+  function EditProductSubmit(){
+    var product_id=document.getElementById("edit-product-id");
+    var productName=document.getElementById("product-add-name-ed");
+    var price =document.getElementById("product-price-add-ed");
+    var stock=document.getElementById("product-stock-add-ed");
+    var DFO =document.getElementById("product-DFO-ed");
+    var DFC=document.getElementById("product-DFC-ed");
+    var description=document.getElementById("product-dis-add-ed");
+    var Category=document.getElementById("product-cat-add-ed");
+    var Condition=document.getElementById("product-con-add-ed");
+    var Model=document.getElementById("product-mod-add-ed");
+    var Brand=document.getElementById("product-brand-add-ed");
+    var Color=document.getElementById("product-clr-add-ed");
+    var form = new FormData();
+    form.append("pname",productName.value);
+    form.append("price",price.value);
+    form.append("stock",stock.value);
+    form.append("DFO",DFO.value);
+    form.append("DFC",DFC.value);
+    form.append("description",description.value);
+    form.append("category",Category.value);
+    form.append("condition",Condition.value);
+    form.append("model",Model.value);
+    form.append("brand",Brand.value);
+    form.append("color",Color.value);
+    form.append("product_id",product_id.innerHTML);
+    imageURLs.forEach(
+       function(file){
+           form.append("images[]",file)
+       }
+    )
+   var xhr = new XMLHttpRequest();
+   xhr.onload = function(){
+      
+     if(xhr.responseText=="success"){
+       window.location.reload();
+   
+     }
+     else{
+       var m = document.getElementById("product_add_error");
+       bm = new bootstrap.Modal(m);
+       bm.show();
+       document.getElementById("response").classList.add("alert");
+       document.getElementById("response").classList.add("alert-danger");
+       document.getElementById("response").innerHTML=""+xhr.responseText+"";
+     }
+   }
+   xhr.open("POST","EditProductProcess.php","true");
+   xhr.send(form);
+   
+     }
   function Adding_Att(type){
     
    document.getElementById("product-"+type+"-add").classList.toggle("d-none");
